@@ -1,0 +1,20 @@
+main {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*padding: 1rem;*/
+  box-sizing: inherit;
+  position: relative;
+}
+
+/*mat-card {
+  width: 300px;
+}*/
+
+mat-form-field.small {
+  --mat-form-field-container-height: 40px;
+  --mat-form-field-container-vertical-padding: 8px;
+  width: 100%;
+}

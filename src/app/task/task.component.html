@@ -1,0 +1,78 @@
+<h5 mat-dialog-title>New Task</h5>
+<mat-dialog-content class="mat-typography">
+  <form class="example-form" [formGroup]="taskForm" (submit)="onSubmit()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Title</mat-label>
+      <input
+        type="text"
+        matInput
+        placeholder="Title"
+        name="title"
+        ngModel
+        [errorStateMatcher]="matcher"
+        placeholder="Title"
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Description</mat-label>
+      <textarea
+        matInput
+        placeholder="Description"
+        rows="2"
+        name="description"
+        ngModel
+      >
+      </textarea>
+    </mat-form-field>
+    <mat-form-field class="example-full-width date">
+      <mat-label>Deadline</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        name="deadline"
+        ngModel
+        [errorStateMatcher]="matcher"
+      />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker">
+      </mat-datepicker-toggle>
+      <mat-datepicker [dateClass]="dateClass" #picker></mat-datepicker>
+    </mat-form-field>
+    <!-- <mat-form-field
+      class="example-full-width small"
+      appearance="outline"
+    >
+      <mat-label>Email Address</mat-label>
+      <input
+        type="email"
+        matInput
+        [formControl]="emailFormControl"
+        [errorStateMatcher]="matcher"
+        placeholder="example@company.com"
+      />
+      @if (emailFormControl.hasError('email') &&
+      !emailFormControl.hasError('required')) {
+      <mat-error>Please enter a valid email</mat-error>
+      } @if (emailFormControl.hasError('required')) {
+      <mat-error>Email is <strong>required</strong></mat-error>
+      }
+    </mat-form-field> -->
+    <br />
+
+    <!--   <mat-form-field class="example-full-width small" appearance="outline">
+    <mat-label>Password</mat-label>
+    <input type="password" matInput placeholder="Password" [formControl]="passwordFormControl"
+    [errorStateMatcher]="matcher"/>
+    @if (passwordFormControl.hasError('password') &&
+    !passwordFormControl.hasError('required')) {
+    <mat-error>Please enter password</mat-error>
+    } @if (passwordFormControl.hasError('required')) {
+    <mat-error>Password is <strong>required</strong></mat-error>
+    }
+  </mat-form-field> -->
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-button cdkFocusInitial type="submit">Save</button>
+    </mat-dialog-actions>
+  </form>
+</mat-dialog-content>

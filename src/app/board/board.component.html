@@ -1,0 +1,106 @@
+<main>
+<p>
+  <mat-toolbar>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Task Manager</span>
+    <span class="example-spacer"></span>
+    
+    <button mat-icon-button class="example-icon plus-icon" aria-label="Example icon-button with heart icon" title="New Task" (click)="newTask()">
+      <mat-icon><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" title="Sign Out" (click)="signout()">
+      <mat-icon><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M200-120q-33 0-56.5-23.5T120-200v-160h80v160h560v-560H200v160h-80v-160q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm220-160-56-58 102-102H120v-80h346L364-622l56-58 200 200-200 200Z"/></svg></mat-icon>
+    </button>
+  </mat-toolbar>
+</p>
+<mat-grid-list cols="3" gutterSize="15px">
+  <mat-grid-tile>
+    <mat-grid-tile-header>Open</mat-grid-tile-header>
+    <div
+      fxLayout="row"
+      fxLayout.xs="column"
+      fxLayoutWrap
+      fxLayoutGap="5.0%"
+      style="
+        overflow: scroll;
+        width: 100%;
+        height: 100%;
+        margin-top: 120px;
+        padding: 5px;
+      "
+    >
+      <div *ngFor="let task of open_task_list" id="OpenBucket">
+        <mat-card appearance="outlined" class="example-card">
+          <mat-card-header>
+            <mat-card-title>{{ task.title }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <b>Deadline:</b> {{ task.deadline }}
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-grid-tile-header>In Progress</mat-grid-tile-header>
+    <div
+      fxLayout="row"
+      fxLayout.xs="column"
+      fxLayoutWrap
+      fxLayoutGap="5.0%"
+      style="
+        overflow-y: scroll;
+        overflow-x: hidden;
+        width: 100%;
+        height: 100%;
+        margin-top: 100px;
+      "
+    >
+      <div *ngFor="let task of inprogress_task_list">
+        <mat-card appearance="outlined" class="example-card">
+          <mat-card-header>
+            <mat-card-title>{{ task.title }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <b>Deadline:</b> {{ task.deadline }}
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-grid-tile-header>Done</mat-grid-tile-header>
+    <div
+      fxLayout="row"
+      fxLayout.xs="column"
+      fxLayoutWrap
+      fxLayoutGap="5.0%"
+      style="
+        overflow-y: scroll;
+        overflow-x: hidden;
+        width: 100%;
+        height: 100%;
+        margin-top: 100px;
+      "
+    >
+      <div *ngFor="let task of done_task_list">
+        <mat-card appearance="outlined" class="example-card">
+          <mat-card-header>
+            <mat-card-title>{{ task.title }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <b>Deadline:</b> {{ task.deadline }}
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    </mat-grid-tile>
+</mat-grid-list>
+</main>
+<!-- <div fxLayout="row">
+    <div fxFlex="30" *ngFor="let task of list">
+      
+    </div>
+  </div> -->
